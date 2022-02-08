@@ -1,0 +1,39 @@
+.main-text {
+  background-image: url('/assets/homeimage.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 600px;
+  width: 99%;
+  height: 100vh;
+  margin-left: 10px;
+  /* width: 1381px; */
+}
+
+.space-left {
+  margin-left: 2rem;
+}
+
+.space-right {
+  margin-right: 2rem;
+}
+
+.space-up {
+  margin-top: 7rem;
+}
+
+.new-arrivals-btn {
+  width: 217px;
+  height: 47px;
+  border: 1px solid #000;
+}
+
+.explore-btn {
+  width: 350px;
+  height: 80px;
+  font-size: 1.7rem;
+}
+
+.large-text {
+  font-size: 7rem;
+  line-height: normal;
+}

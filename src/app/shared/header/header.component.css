@@ -1,0 +1,46 @@
+.DEMOSTORE {
+  width: 406px;
+  height: 88px;
+  margin: 36px 75.6px 0 0;
+  font-family: LaObrige-PersonalUse;
+  font-size: 39px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.2px;
+  text-align: left;
+  color: #000;
+  margin-left: 50px;
+}
+
+.cart {
+  margin-right: 100px;
+}
+
+
+.shopping-bag {
+  width: 44.6px;
+  height: 52.8px;
+  margin: 19.1px 32.2px 0 0;
+}
+
+
+.space-up {
+  /* margin-top: 7rem !important; */
+  margin-top: 50px;
+}
+
+.space-down {
+  /* margin-top: 7rem !important; */
+  margin-bottom: 50px;
+}
+
+.learn-more {
+  background-color: black;
+  color: white;
+  height: 50px;
+  padding-top: 10px;
+  text-decoration-color: white !important;
+}
+

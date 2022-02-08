@@ -1,0 +1,67 @@
+.Demo-Store-V-Neck-T-Shirt---Empty-Shopping-Bag {
+  width: 1920px;
+  height: 2176px;
+  background-color: #fff;
+}
+
+.footer {
+    width: 100%;
+    height: 340.5px;
+    margin: 56px 0 0;
+    background-color: #171717;
+    padding-top: 70px;
+}
+
+.footer  a, h2 {
+  font-size: 25px;
+  text-decoration: none;
+  font-family: GalanoGrotesque;
+  font-size: 25px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.4;
+  letter-spacing: 0.13px;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+img.DEMOSTORE {
+  width: 800px;
+  /* height: 88px; */
+  /* margin: 72px 157px 0 156px; */
+  object-fit: contain;
+  font-family: LaObrige-PersonalUse;
+  font-size: 39px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.2px;
+  text-align: left;
+  color: #fff;
+  padding-left: 17rem;
+  /* padding-bottom: 100px; */
+}
+
+.cookies {
+  background-color: black;
+  color: white;
+  height: 50px;
+  text-decoration-color: white !important;
+  margin-top: -10px;
+}
+
+.left-pad {
+  padding-left: 80px;
+}
+
+.right-pad {
+  padding-right: 80px;
+}
+
+.learn-more {
+  color: white;
+  font-size: 14px;
+  text-decoration: underline;
+}

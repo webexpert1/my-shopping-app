@@ -1,0 +1,12 @@
+<div class="parent" (click)="goToDetail()" routerLink="/products/products/{{product.id}}" routerLinkActive="router-link-active" >
+  <div class="card h-100" style="max-width: 60rem; margin-left: 10px;">
+    <img class="image" [src]="product?.image" alt="">
+    <div class="mt-2">
+      <h3 class="">{{ product?.name }} </h3>
+      <h3 class=" fw-bold"  style="margin-top: -10px;"> ${{ product?.price }} </h3>
+    </div>
+  </div>
+  <div class="child">
+    BUY
+  </div>
+</div>

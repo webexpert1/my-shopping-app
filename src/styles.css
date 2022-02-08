@@ -1,3 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "../node_modules/font-awesome/css/font-awesome.css";
 /* @import "../node_modules/alertifyjs/build/css/themes/bootstrap.min.css"; */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.hr {
+  /* margin: 0px 8px */
+}
+
+.card-without-border {
+  border: none;
+}
+
+.button-hover {
+  background: none;
+  font-size: 22px;
+}
+
+.large-btn {
+  width: 340px;
+  height: 50px;
+  font-size: 1.5rem;
+}
+
+.hr{
+  width: 80%;
+  margin-top: 100px;
+  margin-left: 120px;
+  margin-right: 120px
+}

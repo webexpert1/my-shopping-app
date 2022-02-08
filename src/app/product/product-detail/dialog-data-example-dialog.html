@@ -1,0 +1,127 @@
+<div mat-dialog-content style="overflow-y: hidden !important;">
+ <div class="d-flex justify-content-between">
+  <h2 mat-dialog-title>SHOPPING BAG</h2>
+   <i class="fa fa-chevron-up mt-3"  (click)="onNoClick()" aria-hidden="true"></i>
+  </div>
+  <div>
+    <hr>
+  </div>
+<div mat-dialog-content>
+
+
+  <div class="card card-without-border mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="/assets/shirtvneck.png" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <h4 class="card-title">{{ data.product.name }}</h4>
+            <div [mat-dialog-close]="">X</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-0">
+      <div class="col-md-4">
+
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <div class="d-flex justify-content-between" style="margin-top: -50px">
+            <div mat-dialog-actions>
+              <button class="btn button-hover" (click)="increment()">+</button>
+              <h3 class="mt-3">{{ initialCount }}</h3>
+              <button class="btn button-hover"  (click)="decrement()"  cdkFocusInitial>-</button>
+            </div>
+            <div style="margin-top: 20px;">
+               <h3 class="fw-bold">${{ total }}</h3>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <hr >
+    </div>
+
+    <div class="row g-0">
+      <div class="col-md-4">
+        <h4 class=""> Subtotal</h4>
+
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div>
+            </div>
+            <div>
+               ${{ total }}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- <div>
+      <hr >
+    </div> -->
+
+    <div class="row g-0">
+      <div class="col-md-4">
+        <h4 class=""> Shipping</h4>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div>
+            </div>
+            <div>
+              $0
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <hr>
+    </div>
+
+    <div class="row g-0">
+      <div class="col-md-4">
+        <h3 class="fw-bold">TOTAL</h3>
+
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div>
+            </div>
+            <div>
+              <h2 class="fw-bold"> ${{ total }}</h2>
+
+            </div>
+          </div>
+          <div style="margin-left: -120px;">
+            <button class="btn btn-dark large-btn">Checkout</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <button class="btn btn-dark large-btn">Checkout</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
