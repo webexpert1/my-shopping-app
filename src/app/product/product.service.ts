@@ -1,14 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Product, products } from './_models/product';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class ProductService implements OnInit {
   constructor() { }
+  productCart: Product =  {};
 
+
+  ngOnInit(): void {
+    console.log('inittt')
+  }
   getProducts(): Product[] {
     return products;
   }
@@ -19,6 +24,13 @@ export class ProductService {
 
   removeProduct(id: number) {
     return products.filter((x: any) => x.id !== id)
- }
+  }
+
+  updateCart() {
+
+  }
+  getCart() {;
+    return this.productCart;
+  }
 
 }

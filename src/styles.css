@@ -39,3 +39,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .space-right {
   margin-right: 30px;
 }
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+
+.clearProductCard{
+  height: 120px;
+  padding-top: 40px;
+}

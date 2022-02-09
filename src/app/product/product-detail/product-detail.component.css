@@ -1,5 +1,37 @@
 .explore-btn {
-  width: 340px;
+  width: 300px;
   height: 50px;
   font-size: 1.5rem;
+}
+
+.addToBag {
+  width: 100%;
+  height: 63px;
+  background-color: black;
+  font-size: 30px;
+}
+
+.inputStyle {
+  height: 63px;
+  font-size: 20px;
+}
+
+.medium-text {
+  font-size: 25px;
+}
+
+.space-left {
+  margin-left: 25px;
+}
+
+.subImages {
+  width: 128px;
+  min-width: auto;
+  height: 128px;
+  cursor: pointer;
+  margin-top: 25px;
+}
+
+.heading{
+  font-size:45px;
 }

@@ -2,8 +2,13 @@ import { Component, Input, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {DialogPosition, MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Product } from '../_models/product';
-import { switchMap } from 'rxjs';
+import { switchMap, Observable, of, NEVER } from 'rxjs';
 import { ProductService } from '../product.service';
+
+import { Store } from '@ngrx/store';
+import { increment, decrement, reset } from 'src/app/root-store/product-store/product.actions';
+// import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
+import { GalleryItem, ImageItem } from 'ng-gallery';
 
 export interface DialogData {
   color: string;
@@ -17,6 +22,12 @@ export interface DialogData {
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
+  count$: Observable<number> =  NEVER;
+  // galleryOptions: NgxGalleryOptions[] = [];
+  // galleryImages: NgxGalleryImage[] = [];
+
+  images: GalleryItem[] = [];
+
   name: string = '';
   selectedId: number | null = null;
   product: any = null;
@@ -31,8 +42,12 @@ export class ProductDetailComponent implements OnInit {
   color: string = this.colors[0].value;
   size: string = this.sizes[0].value;
 
-  constructor(private route: ActivatedRoute, public dialog: MatDialog, private productService: ProductService) {
-
+  constructor(
+     private route: ActivatedRoute,
+     public dialog: MatDialog,
+     private productService: ProductService,
+     private store: Store<{ count: number }>) {
+    // console.log(selectCount)
    }
    openDialog(): void {
     const dialogPosition: DialogPosition = {
@@ -40,7 +55,8 @@ export class ProductDetailComponent implements OnInit {
       right: '30px'
     };
 
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+
+    const dialogRef = this.dialog.open(ShoppingCartDialog, {
       width: '430px',
       // height: '90%',
       // scrollS
@@ -50,11 +66,34 @@ export class ProductDetailComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
     });
   }
 
   ngOnInit(): void {
     this.getProduct();
+
+    // this.images = [
+    //   new ImageItem(
+    //     { src: 'assets/subImage1.png', thumb: 'assets/subImage1.png' }),
+    //     { src: 'assets/subImage1.png', thumb: 'assets/subImage1.png' }
+      // 'assets/subImage2.png',
+      // 'assets/subImage3.png',
+    // ];
+
+    // this.galleryOptions = [
+    //   {
+    //     width: '500px',
+    //     height: '500px',
+    //     imagePercent: 100,
+    //     thumbnailsColumns: 4,
+    //     // imageAnimation: NgxGalleryAnimation.Slide,
+    //     preview: false
+    //   }
+    // ];
+
+    // this.galleryImages = this.product.subImages;
+    // console.log(this.galleryImages)
 
   }
 
@@ -64,49 +103,65 @@ export class ProductDetailComponent implements OnInit {
     console.log('prodddddd is', this.product)
   }
 
+  addProductToCart() {
+    this.store.dispatch(increment());
+  }
+
 
 }
 
 @Component({
   selector: 'dialog-data-example-dialog',
-  templateUrl: 'dialog-data-example-dialog.html',
+  templateUrl: 'dialog-data-dialog.html',
 })
-export class DialogOverviewExampleDialog {
+export class ShoppingCartDialog {
   total : number | null = null;
   initialCount = 1;
+  count$: Observable<number> =  NEVER;
+  isProducCleared : Boolean = false;
+
   constructor(
-    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    private productService: ProductService,
+    public dialogRef: MatDialogRef<ShoppingCartDialog>,
+    private store: Store<{ count: number }>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
   ) {
     this.total = this.data.product.price;
-    console.log('tottt', this.total);
+    this.count$ = this.store.select('count');
+    this.count$.subscribe((count: number) => {
+      if(count < 1) {
+        this.total =  this.data.product.price;
+      } else {
+        this.total = count * this.data.product.price;
+      }
+    })
+
 
   }
 
   onNoClick(): void {
-    // this.data.name = 'Ric'
     console.log('data is', this.data)
+    this.reset();
     this.dialogRef.close();
-
-    // console.log('color is', this.color);
-    // console.log('size is', size);
   }
 
-  increment() {
-    console.log('increment');
-    console.log('data', this.data);
-    console.log('total is', this.total);
 
-    this.total = ++this.initialCount * this.data.product.price;
-
+  addProductToCart() {
+    this.store.dispatch(increment());
   }
 
-  decrement() {
-    console.log('decrement');
-    if(this.initialCount <= 1) {
-      this.total = this.initialCount * this.data.product.price;
-    } else {
-      this.total = --this.initialCount * this.data.product.price;
-    }
+  removeProductFromCart() {
+    this.store.dispatch(decrement());
   }
+
+  reset() {
+    this.store.dispatch(reset());
+  }
+
+  clearProduct() {
+    this.reset();
+    this.isProducCleared = true;
+    console.log('clearing')
+  }
+
 }
