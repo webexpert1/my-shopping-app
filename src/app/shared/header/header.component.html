@@ -1,17 +1,20 @@
 <div>
-  <div class="text-center fw-bold learn-more space-down">
-    Shop now. Pay with Klarna. <a href="/">Learn more</a>
-  </div>
-  <div class="d-flex justify-content-between space-down">
+  <div class="d-flex justify-content-between space-down space-left space-right">
     <span class="DEMOSTORE">
       DEMOSTORE
     </span>
     <div>
        <span class="cart">
           <div>
-            <!-- <img src="/assets/homeimage.png" alt=""> -->
+
           </div>
-          cart
+         <div style="margin-left: 20px; margin-top: 20px;">
+          <div class="circle">{{ count$ | async }}</div>
+         </div>
+
+          <div >
+            <img src="assets/shopping-bag1.png" alt="" style="height: 45px; width: 55px;">
+          </div>
        </span>
     </div>
   </div>

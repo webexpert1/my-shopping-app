@@ -31,8 +31,18 @@
   margin-top: 50px;
 }
 
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  padding-top: 11px;
+  background: #000;
+}
+
 .space-down {
-  /* margin-top: 7rem !important; */
   margin-bottom: 50px;
 }
 

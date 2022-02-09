@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable, NEVER } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -6,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  count$: Observable<number> =  NEVER;
+  constructor(
+    private store: Store<{ count: number }>) {
+      this.count$ = this.store.select('count');
+     }
 
   ngOnInit(): void {
   }
