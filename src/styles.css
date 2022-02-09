@@ -3,7 +3,7 @@
 @import "../node_modules/font-awesome/css/font-awesome.css";
 /* @import "../node_modules/alertifyjs/build/css/themes/bootstrap.min.css"; */
 
-html, body { height: 100%; }
+html, body { height: 100%;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .hr {
@@ -30,4 +30,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin-top: 100px;
   margin-left: 120px;
   margin-right: 120px
+}
+
+.space-left {
+  margin-left: 30px;
+}
+
+.space-right {
+  margin-right: 30px;
 }

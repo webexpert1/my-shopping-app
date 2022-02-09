@@ -6,10 +6,15 @@ export const initialState = 0;
 const _productReducer = createReducer(
   initialState,
   on(increment, (state) => state + 1),
-  on(decrement, (state) => state - 1),
+  on(decrement, (state) =>{
+    if(state <= 1) {
+      return state;
+    }
+    return state - 1;
+  }),
   on(reset, (state) => 0)
 )
 
-export function productReducer(state, action) {
+export function productReducer(state: any, action: any) {
   return _productReducer(state, action)
 }

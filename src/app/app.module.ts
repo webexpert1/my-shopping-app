@@ -7,12 +7,12 @@ import { AppComponent } from './app.component';
 import { RootStoreModule } from './root-store/root-store.module';
 
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './root-store/product-store/counter.reducer';
 import { SharedModule } from './shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
+import { productReducer } from './root-store/product-store/product.reducer';
 
 const routes: Routes = [
   {
@@ -51,7 +51,7 @@ const routes: Routes = [
     AppRoutingModule,
     ReactiveFormsModule,
     RootStoreModule,
-    StoreModule.forRoot({ count: counterReducer }),
+    StoreModule.forRoot({ count: productReducer }),
     SharedModule,
     NgbModule,
     RouterModule.forRoot(routes),
